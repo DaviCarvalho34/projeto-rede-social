@@ -35,7 +35,7 @@
 				*/
 				$this->controller = new $loadName();
 			}else{
-				//Se o arquivo não existir irá ser exibida uma tela de erro
+				//Se o arquivo não existir irá ser exibida uma tela de erro s
 				include('Views/pages/erro.html');
 				die();
 			}
