@@ -24,6 +24,15 @@ class RegistrarController
       if(!filter_var($email_cadastro,FILTER_VALIDATE_EMAIL)){
         \Project\Utilidades::alerta('E-mail inválido');
         \Project\Utilidades::redirect(INCLUDE_PATH.'registrar');
+      }else if(strlen($senha_cadastro) < 6){
+        \Project\Utilidades::alerta('Sua senha é muito curta');
+        \Project\Utilidades::redirect(INCLUDE_PATH.'registrar');
+      }else if(\Project\Models\UsuariosModel::emailExists($email_cadastro)){
+        \Project\Utilidades::alerta('Esse email já foi cadadatrado!');
+        \Project\Utilidades::redirect(INCLUDE_PATH.'registrar');
+      }else{
+        //Cadastra
+        \Project\Models\UsuariosModel::registra();
       }
     }
   }
