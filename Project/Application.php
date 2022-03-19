@@ -10,7 +10,7 @@
 			$loadName = 'Project\Controllers\\';
 			//Irá receber o retorno da função url, e através de uma condição ternária se não existir irá receber um array de valor 0
 			$url = $this->url() ? $this->url():[0];
-			var_dump($url);
+			//var_dump($url);
 			//Verifica se o primeiro item do array está vazio, ou seja não foi digitado nada na url
 			if($url[0] == ''){
 				//Se estiver vazio a variável loadName ira concatenar com o nome do controller
