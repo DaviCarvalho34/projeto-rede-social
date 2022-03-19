@@ -21,6 +21,9 @@ class UsuariosModel
 
   public static function registra()
   {
+    $nome_cadastro = $_POST['nome_cadastro'];
+    $email_cadastro = $_POST['email_cadastro'];
+    $senha_cadastro = $_POST['senha_cadastro'];
     $senha_cadastro = \Project\Bcrypt::hash($senha_cadastro);
     $registro = \Project\MySql::connect()->prepare("INSERT INTO usuarios VALUES(null,?,?,?)");
     $registro->execute(array($nome_cadastro,$email_cadastro,$senha_cadastro));
